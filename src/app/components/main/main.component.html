@@ -1,0 +1,14 @@
+<div class="body">
+
+Itt lesz az állásajánlat listázása és kiválasztása
+Álláskereső bejelentkezve látja az összes állásajánlatot
+Hirdető bejelentkezve látja a saját állásajánlatait
+
+<ul>
+    <li (click)="onSelect(job)" *ngFor="let job of jobs">
+        <span>{{ job.id }}</span>{{ job.name }}
+    </li>
+</ul>
+</div>
+
+
