@@ -16,7 +16,7 @@ export class Service {
         return of();
     }
 
-    public login(username: string, password: string, type: string): Observable<any> {
+    public login(username: string, password: string): Observable<any> {
         return of();
     }
 
