@@ -21,6 +21,6 @@ export class MainComponent implements OnInit {
     }
 
     onSelect(job: any) {
-        this.router.navigate(['/job', job.id]);
+        this.router.navigate(['/jobs', job.id]);
     }
 }

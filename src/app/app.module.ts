@@ -7,8 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
 import { MainComponent } from './components/main/main.component';
-import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
 
 
 
