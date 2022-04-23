@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 
@@ -6,14 +6,20 @@ import { Observable, of } from "rxjs";
     providedIn: 'root',
    })
 export class Service {
+    private url: string = 'http://localhost:8081';
     constructor(private http: HttpClient) {}
 
     public getJobList(): Observable<any[]> {
-        return of([{}]);
+        return this.http.get<any[]>(`${this.url}/jobs`);
+    }
+
+    public getJobListForAdvertiser(id: string): Observable<any[]> {
+        const param = new HttpParams().set('id', id)
+        return this.http.get<any[]>(`${this.url}/jobs`, {params: param});
     }
 
     public getJob(id: number): Observable<any> {
-        return of();
+        return this.http.get<any>(`${this.url}/job/${id}`);
     }
 
     public login(username: string, password: string): Observable<any> {
@@ -28,7 +34,7 @@ export class Service {
         return of();
     }
 
-    public applyJob(jobId: any): Observable<any> {
+    public applyJob(jobId: number, userId: string): Observable<any> {
         return of();
     }
 

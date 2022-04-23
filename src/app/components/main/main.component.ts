@@ -9,7 +9,7 @@ import { Service } from 'src/app/services/service';
 })
 export class MainComponent implements OnInit {
 
-    jobs = [{ id: 1, name: 'munka1' }, { id: 2, name: 'munka2' }];
+    public jobs: any[] = [];
 
     constructor(
         private router: Router,
@@ -17,10 +17,17 @@ export class MainComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        // this.jobs = this.service.getJobList();
+        this.initJobs();
     }
 
     onSelect(job: any) {
         this.router.navigate(['/jobs', job.id]);
+    }
+
+    initJobs() {
+        this.service.getJobList().subscribe(jobs => {
+            this.jobs = jobs;
+            console.log(jobs);
+        });
     }
 }
