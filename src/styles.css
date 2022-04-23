@@ -1,9 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 
 .mat-toolbar {
     margin-top: 5px;
@@ -13,3 +8,196 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       padding-left: 100px;
       padding-right: 100px;
   }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.center{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+.center .stars{
+    height: 150px;
+    width: 500px;
+    text-align: center;
+}
+
+.stars input{
+    display: none;
+}
+
+.stars label{
+    float: right;
+    font-size: 100px;
+    color: lightgrey;
+    margin: 0 5px;
+    text-shadow: 1px 1px #bbb;
+}
+.stars label:before{
+    content: '★';
+}
+.stars input:checked ~ label{
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+
+.stars:not(:checked) > label:hover,
+.stars:not(:checked) > label:hover ~ label{
+    color: gold;
+}
+
+.stars input:checked > label:hover,
+.stars input:checked > label:hover ~ label{
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+
+.menu {
+    min-height: 70px;
+    background-color: antiquewhite;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.cimsor {
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    font-size: 3em;
+    display: inline;
+    position: absolute;
+    overflow: paged-x;
+    left: 0.5em;
+    top: 0.15em;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.active {
+    min-height: 70px;
+    background-color: #fcbf99;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+li {
+    margin: 15px 10px;
+    padding: 0px;
+    display: inline;
+    float: right;
+}
+
+li a {
+    display: block;
+    margin: 0;
+    padding: 12px 30px;
+    background-color: #fcd7a7;
+    color: black;
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    font-size: 1.1em;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 3px 4px 5px rgba(0,0,0,0.7)
+}
+
+li a:hover {
+    background-color: antiquewhite;
+    color: black;
+    font-weight: 900;
+    border: 0;
+}
+
+
+footer {
+    text-align: center;
+    width: 100%;
+    background-color: antiquewhite;
+    color: black;
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    font-size: 2.2vh;
+    padding: 20px 0px;
+    letter-spacing: 2px;
+    white-space: normal;
+    line-height: inherit;
+    /*position: page;*/
+    /*overflow: paged-x;*/
+}
+.indexOldal {
+    position: fixed;
+    bottom: 0;
+}
+#footer img{
+    width: 30px;
+    height: 30px;
+}
+.udv {
+    margin-top:20px;
+    text-align: center;
+
+}
+
+.successMsg {
+    color: green;
+}
+
+.errorMsg {
+    color: red;
+}
+
+.inlineForm {
+    display: inline;
+}
+
+.container {
+    margin: 7% auto 7%;
+    width: 90%;
+    background-color: antiquewhite;
+    color: black;
+    text-align: center;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+
+.container h1 {
+    padding-top: 30px;
+    font-weight: 100;
+    font-size: 3em;
+}
+
+.requiredSpan{
+    font-size: 11px;
+    color: red;
+}
+
+.requiredText{
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 4px;
+}
+
+#map {
+    height: 400px;
+    width: 600px;
+}
+.rw-ui-container {
+    margin-left: 45%;
+}

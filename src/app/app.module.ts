@@ -9,6 +9,8 @@ import { SharedModule } from './components/shared/shared.module';
 import { MainComponent } from './components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -17,7 +19,9 @@ import { JobDetailComponent } from './components/job-detail/job-detail.component
     AppComponent,
     LoginComponent,
     MainComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
