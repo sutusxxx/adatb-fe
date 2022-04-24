@@ -1,13 +1,19 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { Observable, of, Subject } from "rxjs";
 
 @Injectable({
     providedIn: 'root',
    })
 export class Service {
     private url: string = 'http://localhost:8081';
-    constructor(private http: HttpClient) {}
+
+    public user: any;
+    public onSetUser: Subject<any> = new Subject<any>();
+
+    constructor(private http: HttpClient) {
+        this.user = sessionStorage.getItem('user');
+    }
 
     public getJobList(): Observable<any[]> {
         return this.http.get<any[]>(`${this.url}/jobs`);
@@ -22,8 +28,20 @@ export class Service {
         return this.http.get<any>(`${this.url}/job/${id}`);
     }
 
-    public login(username: string, password: string): Observable<any> {
-        return of();
+    public loginJobSeeker(username: string, password: string): Observable<any> {
+        return this.http.post<any>(`${this.url}/login/jobseeker`, 
+        {
+            username: username,
+            password: password
+        });
+    }
+
+    public loginAdvertiser(username: string, password: string): Observable<any> {
+        return this.http.post<any>(`${this.url}/login/advertiser`, 
+        {
+            username: username,
+            password: password
+        });
     }
 
     public deleteJob(id: number): Observable<any> {
@@ -40,5 +58,23 @@ export class Service {
 
     public uploadCV(cv: any): Observable<any> {
         return of();
+    }
+
+    public setUser(user: any, type: string): void {
+        console.log(user);
+        if (user) {
+            sessionStorage.setItem('userID', user.id);
+            sessionStorage.setItem('username', user.username);
+            sessionStorage.setItem('type', type);
+        }
+    }
+
+    public isUserLoggedIn(): boolean {
+        const user = sessionStorage.getItem('username');
+        return !(user === null);
+    }
+
+    public logout(): void {
+        sessionStorage.clear();
     }
 }

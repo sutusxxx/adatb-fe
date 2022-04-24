@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -28,7 +29,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    FormsModule
  
   ],
   providers: [],

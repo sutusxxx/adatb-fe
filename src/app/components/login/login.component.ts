@@ -8,7 +8,8 @@ import { Service } from 'src/app/services/service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public user: any;
+  public jobSeeker: any = {username: '', password: ''};
+  public advertiser: any = {username: '', password: ''};
 
   constructor(
     private router: Router,
@@ -18,9 +19,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(): void {
-    this.service.login(this.user.username, this.user.password)
+  loginJobSeeker(): void {
+    this.service.loginJobSeeker(this.jobSeeker.username, this.jobSeeker.password)
       .subscribe(user => {
+          this.service.setUser(user, 'allaskereso');
+      });
+  }
+
+  loginAdvertiser(): void {
+    this.service.loginAdvertiser(this.jobSeeker.username, this.jobSeeker.password)
+      .subscribe(() => {
           console.log("login");
       });
   }

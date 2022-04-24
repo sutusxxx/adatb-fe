@@ -1,5 +1,29 @@
-<div class="body">
-Bejelentkező oldal a 3 féle usernek
-</div>
+<div class="main">
+    <div class="container">
+        <div id="login">
+            <h2>Bejelentkezés álláskeresőként</h2>
+            <hr/>
+            <form>
+                <label>Felhasználónév: 
+                    <input type="text" name="felhasznalonev" [(ngModel)]="jobSeeker.username" required/></label> <br/>
+                <label>Jelszó: 
+                    <input type="password" name="jelszo" [(ngModel)]="jobSeeker.password" required/></label> <br/>
+                <input type="button" name="login" (click)="loginJobSeeker()" value="Bejelentkezés"/> <br/><br/>
+            </form>
+        </div>
 
+        <div id="login2">
+            <h2>Bejelentkezés hirdetőként</h2>
+            <hr/>
+            <form>
+                <label>Felhasználónév: <input type="text" name="felhasznalonev"  [(ngModel)]="advertiser.username" required/></label> <br/>
+                <label>Jelszó: <input type="password" name="jelszo"  [(ngModel)]="advertiser.password" required/></label> <br/>
+                <a href="hirdetoBejelentkezve.html">
+                <input type="button" name="login" (click)="loginAdvertiser()" value="Bejelentkezés" /> <br/><br/>
+                </a>
+            </form>
+        </div>
+
+    </div>
+</div>
 
