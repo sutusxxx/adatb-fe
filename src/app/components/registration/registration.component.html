@@ -15,7 +15,7 @@
                 <label>Telefon: <input type="number" name="telefon" [(ngModel)]="user.phone" /></label> <br/>
                 <label><b>A regisztrációhoz pipálja be, hogy elfogadja a felhasználási feltételeinket! Elfogadás:</b>
                     <input class="bevitel-checkbox" type="checkbox" name="checkbox"></label>
-                <input type="button" (click)="registrationForUser" value="Regisztráció"/> <br/><br/>
+                <input type="button" (click)="registrationForUser()" value="Regisztráció"/> <br/><br/>
             </form>
         </div>
         <div id="regist1">
@@ -29,7 +29,7 @@
                 <label>Telefon: <input type="number" name="telefon"[(ngModel)]="advertiser.phone" /></label> <br/>
                 <label><b>A regisztrációhoz pipálja be, hogy elfogadja a felhasználási feltételeinket! Elfogadás:</b>
                     <input class="bevitel-checkbox" type="checkbox" name="checkbox"></label>
-                <input type="button" (click)="registrationForAdvertiser" value="Regisztráció"/> <br/><br/>
+                <input type="button" (click)="registrationForAdvertiser()" value="Regisztráció"/> <br/><br/>
             </form>
         </div>
     </div>
