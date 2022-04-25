@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/service';
 import { ActivatedRoute } from '@angular/router';
+import { JobDetails } from 'src/app/model/job-details';
 
 @Component({
   selector: 'app-job-detail',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class JobDetailComponent implements OnInit {
 
-  public jobDetails: any;
+  public jobDetails: JobDetails | null = null;
 
   constructor(
     private service: Service,
@@ -24,9 +25,12 @@ export class JobDetailComponent implements OnInit {
     }
   }
 
-  setJobDetails(id: number): void {
+  async setJobDetails(id: number): Promise<void> {
     if (id) {
-      this.jobDetails = this.service.getJob(id);
+      await this.service.getJob(id).subscribe(res => {
+        console.log(res);
+        this.jobDetails = res;
+      });
     }
   }
 }
