@@ -9,8 +9,24 @@ import { Service } from "src/app/services/service";
   })
   export class RegistrationComponent implements OnInit {
 
-    user: any;
-    advertiser: any;
+    user: any = {
+        username: '',
+        password: '',
+        name: '',
+        education: '',
+        dateOfBirth: '',
+        language: '',
+        email: '',
+        address: '',
+        phone: ''
+    };
+    advertiser: any = {
+        username: '',
+        password: '',
+        email: '',
+        phone: '',
+        name: ''
+    };
   
     constructor(
       private service: Service,
