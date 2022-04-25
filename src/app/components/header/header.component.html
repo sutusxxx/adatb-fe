@@ -4,9 +4,9 @@
             <ul>
                 <li><a href="index.html">Főoldal</a></li>
                 <li><a href="/jobs">Álláskeresés</a></li>
-                <li><a href="regisztracio.html">Regisztráció</a></li>
-                <li><a href="/login">Bejelentkezés</a></li>
-                <li><input (click)="logout()" type="button" name="logout" value="Kijelentkezés"/></li>
+                <li><a href="/registration">Regisztráció</a></li>
+                <li *ngIf="!isLoggedIn()"><a href="/login">Bejelentkezés</a></li>
+                <li *ngIf="isLoggedIn()"><input (click)="logout()" type="button" name="logout" value="Kijelentkezés"/></li>
             </ul>
         </div>
     </div>

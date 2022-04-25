@@ -16,6 +16,32 @@ export class Service {
         this.user = sessionStorage.getItem('user');
     }
 
+    public registerUser(user: any): Observable<void> {
+        return this.http.post<void>(`${this.url}/registration/jobseeker`, 
+        {
+            username: user.username,
+            password: user.password,
+            name: user.name,
+            education: user.education,
+            dateOfBirth: user.dateOfBirth,
+            language: user.language,
+            email: user.email,
+            address: user.address,
+            phone: user.phone
+        })
+    }
+
+    public registerAdvertiser(advertiser: any): Observable<void> {
+        return this.http.post<void>(`${this.url}/registration/advertiser`, 
+        {
+            username: advertiser.username,
+            password: advertiser.password,
+            name: advertiser.name,
+            email: advertiser.email,
+            phone: advertiser.phone
+        })
+    }
+
     public getJobList(): Observable<any[]> {
         return this.http.get<any[]>(`${this.url}/jobs`);
     }
@@ -79,8 +105,7 @@ export class Service {
     }
 
     public isUserLoggedIn(): boolean {
-        const user = sessionStorage.getItem('username');
-        return !(user === null);
+        return sessionStorage.getItem('userID') !== undefined && sessionStorage.getItem('userID') !== null;
     }
 
     public logout(): void {

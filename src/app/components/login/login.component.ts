@@ -17,12 +17,16 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.service.isUserLoggedIn()) {
+      this.router.navigate(['http://localhost:4200/jobs']);
+    }
   }
 
   loginJobSeeker(): void {
     this.service.loginJobSeeker(this.jobSeeker.username, this.jobSeeker.password)
       .subscribe(user => {
           this.service.setUser(user, 'allaskereso');
+          this.router.navigate(['/jobs']);
       });
   }
 
@@ -31,6 +35,7 @@ export class LoginComponent implements OnInit {
       .subscribe(user => {
         console.log(user);
           this.service.setUser(user, 'hirdeto');
+          this.router.navigate(['/jobs']);
       });
   }
 }

@@ -12,6 +12,7 @@ import { JobDetailComponent } from './components/job-detail/job-detail.component
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     MainComponent,
     JobDetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,6 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     SharedModule,
     FormsModule
- 
   ],
   providers: [],
   bootstrap: [AppComponent]
