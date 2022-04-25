@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of, Subject } from "rxjs";
+import { JobDetails } from "../model/job-details";
 
 @Injectable({
     providedIn: 'root',
@@ -24,8 +25,8 @@ export class Service {
         return this.http.get<any[]>(`${this.url}/jobs`, {params: param});
     }
 
-    public getJob(id: number): Observable<any> {
-        return this.http.get<any>(`${this.url}/job/${id}`);
+    public getJob(id: number): Observable<JobDetails> {
+        return this.http.get<JobDetails>(`${this.url}/job/${id}`);
     }
 
     public loginJobSeeker(username: string, password: string): Observable<any> {
@@ -44,16 +45,24 @@ export class Service {
         });
     }
 
-    public deleteJob(id: number): Observable<any> {
-        return of();
+    public deleteJob(jobId: number, userId: number): Observable<void> {
+        const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
+        return this.http.delete<void>(`${this.url}/job/delete`, {params: param});
     }
 
     public createJob(job: any): Observable<any> {
-        return of();
+        return this.http.post<void>(`${this.url}/login/advertiser`, 
+        {
+            name: job.name,
+            description: job.description,
+            advertiserId: job.advertiserId,
+            place: job.place
+        });
     }
 
-    public applyJob(jobId: number, userId: string): Observable<any> {
-        return of();
+    public applyJob(jobId: number, userId: string): Observable<void> {
+        const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
+        return this.http.put<void>(`${this.url}/job/apply`, {params: param});
     }
 
     public uploadCV(cv: any): Observable<any> {

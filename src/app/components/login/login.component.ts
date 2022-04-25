@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
   }
 
   loginAdvertiser(): void {
-    this.service.loginAdvertiser(this.jobSeeker.username, this.jobSeeker.password)
-      .subscribe(() => {
-          console.log("login");
+    this.service.loginAdvertiser(this.advertiser.username, this.advertiser.password)
+      .subscribe(user => {
+        console.log(user);
+          this.service.setUser(user, 'hirdeto');
       });
   }
 }

@@ -7,6 +7,7 @@ export class JobDetails {
     public advertiserName: string;
     public advertiserEmail: string;
     public advertiserPhone: string;
+    public workType: string[];
 
     constructor(
         id: number,
@@ -16,7 +17,8 @@ export class JobDetails {
         companyName: string,
         advertiserName: string,
         advertiserEmail: string,
-        advertiserPhone: string
+        advertiserPhone: string,
+        workType: string[]
     ) {
         this.id = id;
         this.name = name;
@@ -26,5 +28,6 @@ export class JobDetails {
         this.advertiserName = advertiserName;
         this.advertiserEmail = advertiserEmail;
         this.advertiserPhone = advertiserPhone;
+        this.workType = workType;
     }
 }
