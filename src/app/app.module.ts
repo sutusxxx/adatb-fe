@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { CreateJobComponent } from './components/create-job/create-job.component';
 
 
 
@@ -24,7 +25,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     JobDetailComponent,
     HeaderComponent,
     FooterComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CreateJobComponent
   ],
   imports: [
     BrowserModule,
