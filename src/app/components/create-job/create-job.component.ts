@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Service } from "src/app/services/service";
 
 @Component({
@@ -12,7 +12,7 @@ import { Service } from "src/app/services/service";
   
     constructor(
       private service: Service,
-      private route: ActivatedRoute
+      private router: Router
     ) { }
   
     ngOnInit(): void {
@@ -26,7 +26,7 @@ import { Service } from "src/app/services/service";
         console.log(this.job);
         this.service.createJob(this.job).subscribe(bool => {
           if (bool) {
-            console.log("siker");
+            this.router.navigate(['/jobs']);
           }
         });
     }

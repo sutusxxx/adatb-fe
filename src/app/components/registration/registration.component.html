@@ -4,15 +4,15 @@
             <h2>Regisztráció álláskeresőként</h2>
             <hr/>
             <form class="signup" >
-                <label>Felhasználónév: <input type="text" name="felhasznalonev" [(ngModel)]="user.username" required/></label> <br/>
-                <label>Jelszó: <input type="password" name="jelszo" [(ngModel)]="user.password" required/></label> <br/>
-                <label>Név: <input type="name" name="name" [(ngModel)]="user.name" required/></label> <br/>
-                <label>E-mail cím: <input type="email" name="email"  [(ngModel)]="user.email" required/></label> <br/>
-                <label>Végzettség: <input type="text" name="vegzettseg" [(ngModel)]="user.education" /></label> <br/>
-                <label>Születési dátum: <input type="date" name="szuldatum" [(ngModel)]="user.dateOfBirth" /></label> <br/>
-                <label>Nyelvismeret: <input type="text" name="nyelvismeret" /></label> <br/>
-                <label>Lakhely: <input type="text" name="lakhely" [(ngModel)]="user.address" /></label> <br/>
-                <label>Telefon: <input type="number" name="telefon" [(ngModel)]="user.phone" /></label> <br/>
+                <label>Felhasználónév: <input type="text" autocomplete="off" name="felhasznalonev" [(ngModel)]="user.username" required/></label> <br/>
+                <label>Jelszó: <input type="password" autocomplete="off" name="jelszo" [(ngModel)]="user.password" required/></label> <br/>
+                <label>Név: <input type="name" autocomplete="off" name="name" [(ngModel)]="user.name" required/></label> <br/>
+                <label>E-mail cím: <input type="email" autocomplete="off" name="email"  [(ngModel)]="user.email" required/></label> <br/>
+                <label>Végzettség: <input type="text" autocomplete="off" name="vegzettseg" [(ngModel)]="user.education" /></label> <br/>
+                <label>Születési dátum: <input type="date" autocomplete="off" name="szuldatum" [(ngModel)]="user.dateOfBirth" /></label> <br/>
+                <label>Nyelvismeret: <input type="text" autocomplete="off" name="nyelvismeret" /></label> <br/>
+                <label>Lakhely: <input type="text" autocomplete="off" name="lakhely" [(ngModel)]="user.address" /></label> <br/>
+                <label>Telefon: <input type="number" autocomplete="off" name="telefon" [(ngModel)]="user.phone" /></label> <br/>
                 <label><b>A regisztrációhoz pipálja be, hogy elfogadja a felhasználási feltételeinket! Elfogadás:</b>
                     <input class="bevitel-checkbox" type="checkbox" name="checkbox"></label>
                 <input type="button" (click)="registrationForUser()" value="Regisztráció"/> <br/><br/>
@@ -22,11 +22,11 @@
             <h2>Regisztráció hirdetőként</h2>
             <hr/>
             <form class="signup" >
-                <label>Felhasználónév: <input type="text" name="felhasznalonev"  [(ngModel)]="advertiser.username" required/></label> <br/>
-                <label>Jelszó: <input type="password" name="jelszo" [(ngModel)]="advertiser.password" required/></label> <br/>
-                <label>E-mail cím: <input type="email" name="email"[(ngModel)]="advertiser.email" value="" required/></label> <br/>
-                <label>Név: <input type="text" name="nev" [(ngModel)]="advertiser.name" required/></label> <br/>
-                <label>Telefon: <input type="number" name="telefon"[(ngModel)]="advertiser.phone" /></label> <br/>
+                <label>Felhasználónév: <input type="text" autocomplete="off" name="felhasznalonev"  [(ngModel)]="advertiser.username" required/></label> <br/>
+                <label>Jelszó: <input type="password" autocomplete="off" name="jelszo" [(ngModel)]="advertiser.password" required/></label> <br/>
+                <label>E-mail cím: <input type="email" autocomplete="off" name="email"[(ngModel)]="advertiser.email" value="" required/></label> <br/>
+                <label>Név: <input type="text" name="nev" autocomplete="off" [(ngModel)]="advertiser.name" required/></label> <br/>
+                <label>Telefon: <input type="number" autocomplete="off" name="telefon"[(ngModel)]="advertiser.phone" /></label> <br/>
                 <label><b>A regisztrációhoz pipálja be, hogy elfogadja a felhasználási feltételeinket! Elfogadás:</b>
                     <input class="bevitel-checkbox" type="checkbox" name="checkbox"></label>
                 <input type="button" (click)="registrationForAdvertiser()" value="Regisztráció"/> <br/><br/>

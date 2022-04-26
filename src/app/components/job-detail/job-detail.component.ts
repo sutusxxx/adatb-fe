@@ -32,7 +32,7 @@ export class JobDetailComponent implements OnInit {
       const userId: number = parseInt(sessionUserId);
       this.service.deleteJob(this.jobDetails.id, userId).subscribe(bool => {
         if (bool) {
-          console.log("siker");
+          this.router.navigate(['/jobs']);
         }
       });
     }

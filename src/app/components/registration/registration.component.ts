@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Service } from "src/app/services/service";
 
 @Component({
@@ -30,17 +30,25 @@ import { Service } from "src/app/services/service";
   
     constructor(
       private service: Service,
-      private route: ActivatedRoute
+      private router: Router
     ) { }
   
     ngOnInit(): void {
     }
 
     registrationForUser(): void {
-        this.service.registerJobSeeker(this.user).subscribe();
+        this.service.registerJobSeeker(this.user).subscribe(bool => {
+          if (bool) {
+            this.router.navigate(['/login']);
+          }
+        });
     }
 
     registrationForAdvertiser(): void {
-        this.service.registerAdvertiser(this.advertiser);
+        this.service.registerAdvertiser(this.advertiser).subscribe(bool => {
+          if (bool) {
+            this.router.navigate(['/login']);
+          }
+        });
     }
   }
