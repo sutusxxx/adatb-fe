@@ -25,6 +25,18 @@ export class JobDetailComponent implements OnInit {
     }
   }
 
+  delete(): void {
+    const sessionUserId: string | null = sessionStorage.getItem('userID');
+    if (sessionUserId && this.jobDetails) {
+      const userId: number = parseInt(sessionUserId);
+      this.service.deleteJob(this.jobDetails.id, userId);
+    }
+  }
+
+  apply(): void {
+
+  }
+
   async setJobDetails(id: number): Promise<void> {
     if (id) {
       await this.service.getJob(id).subscribe(res => {
@@ -32,5 +44,22 @@ export class JobDetailComponent implements OnInit {
         this.jobDetails = res;
       });
     }
+  }
+
+  isUserJobSeeker(): boolean {
+    return sessionStorage.getItem('type') === 'allaskereso';
+  }
+
+  isUserAdvertiser(): boolean {
+    return sessionStorage.getItem('type') === 'hirdeto';
+  }
+
+  canModify(): boolean {
+    const sessionId: string | null = sessionStorage.getItem('userID');
+    if (sessionId && this.jobDetails) {
+      const userId: number = parseInt(sessionId);
+      return sessionStorage.getItem('type') === 'hirdeto' && userId === this.jobDetails.advertiserId;
+    }
+    return false;
   }
 }

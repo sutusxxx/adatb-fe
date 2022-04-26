@@ -1,10 +1,30 @@
 <div class="body">
-A kiválasztott állásajánlat oldala
-<br>
-{{jobDetails?.name}}
-{{jobDetails?.advertiserName}}
-{{jobDetails?.workType}}
-</div>
-
+    A kiválasztott állásajánlat oldala
+    <br>
+    {{jobDetails?.id}}
+    <br>
+    {{jobDetails?.name}}
+    <br>
+    {{jobDetails?.description}}
+    <br>
+    {{jobDetails?.place}}
+    <br>
+    {{jobDetails?.companyName}}
+    <br>
+    {{jobDetails?.advertiserName}}
+    <br>
+    {{jobDetails?.advertiserEmail}}
+    <br>
+    {{jobDetails?.advertiserPhone}}
+    <br>
+    {{jobDetails?.advertiserId}}
+    <br>
+    
+        <ul>
+            <li *ngIf="isUserJobSeeker()"><input (click)="apply()"  type="button" name="apply" value="Jelentkezés"/></li>
+            <li *ngIf="canModify()"><input (click)="delete()"  type="button" name="delete" value="Törlés"/></li>
+            <li *ngIf="canModify()"><input  type="button" name="modify" value="Módosítás"/></li>
+        </ul>
     
     
+    </div>

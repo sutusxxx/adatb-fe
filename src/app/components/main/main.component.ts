@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Job } from 'src/app/model/job';
 import { Service } from 'src/app/services/service';
 
 @Component({
@@ -9,7 +10,7 @@ import { Service } from 'src/app/services/service';
 })
 export class MainComponent implements OnInit {
 
-    public jobs: any[] = [];
+    public jobs: Job[] = [];
 
     constructor(
         private router: Router,
