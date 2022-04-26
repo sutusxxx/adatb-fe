@@ -78,7 +78,7 @@ export class Service {
 
     public createJob(job: any): Observable<any> {
         const userId =  sessionStorage.getItem('userID');
-        return this.http.post<void>(`${this.url}/job/create`, 
+        return this.http.post<any>(`${this.url}/jobs/create`, 
         {
             name: job.name,
             description: job.description,

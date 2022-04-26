@@ -29,6 +29,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.service.isUserLoggedIn();
   }
 
+  isAdvertiser() {
+    return sessionStorage.getItem('type') === 'hirdeto';
+}
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
