@@ -23,7 +23,7 @@
         <ul>
             <li *ngIf="isUserJobSeeker()"><input (click)="apply()"  type="button" name="apply" value="Jelentkezés"/></li>
             <li *ngIf="canModify()"><input (click)="delete()"  type="button" name="delete" value="Törlés"/></li>
-            <li *ngIf="canModify()"><input  type="button" name="modify" value="Módosítás"/></li>
+            <li *ngIf="canModify()"><input (click)="update()"  type="button" name="modify" value="Módosítás"/></li>
         </ul>
     
     

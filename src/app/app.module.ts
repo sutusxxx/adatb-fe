@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CreateJobComponent } from './components/create-job/create-job.component';
+import { UpdateJobComponent } from './components/update-job/update-job.component';
 
 
 
@@ -26,7 +27,8 @@ import { CreateJobComponent } from './components/create-job/create-job.component
     HeaderComponent,
     FooterComponent,
     RegistrationComponent,
-    CreateJobComponent
+    CreateJobComponent,
+    UpdateJobComponent
   ],
   imports: [
     BrowserModule,

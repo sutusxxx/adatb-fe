@@ -1,12 +1,12 @@
 <div *ngIf="isAdvertiser() && this.job" class="main">
     <div class="container">
         <div id="hirdet">
-            <h2>Hirdetés feltöltése</h2>
+            <h2>Hirdetés szerkesztése</h2>
             <hr/>
             <form class="upload" >
                 <label>Cím: <input type="text" name="cim"  [(ngModel)]="job.name" required/></label> <br/>
                 <label>Leírás: <input type="text" name="leiras"  [(ngModel)]="job.description" required/></label> <br/>
                 <label>Helyszín: <input type="text" name="helyszin"  [(ngModel)]="job.place" required/></label> <br/>
-                <input type="button" (click)="createJob()" value="Feltöltés"/> <br/><br/>
+                <input type="button" (click)="update()" value="Mentés"/> <br/><br/>
             </form>
 </div>

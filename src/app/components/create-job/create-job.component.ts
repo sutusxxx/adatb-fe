@@ -24,6 +24,10 @@ import { Service } from "src/app/services/service";
 
     createJob(): void {
         console.log(this.job);
-        this.service.createJob(this.job);
+        this.service.createJob(this.job).subscribe(bool => {
+          if (bool) {
+            console.log("siker");
+          }
+        });
     }
   }

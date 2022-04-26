@@ -4,6 +4,7 @@ import { Observable, of, Subject } from "rxjs";
 import { CreateJobSeeker } from "../model/create-job-seeker";
 import { Job } from "../model/job";
 import { JobDetails } from "../model/job-details";
+import { UpdateJob } from "../model/update-job";
 
 @Injectable({
     providedIn: 'root',
@@ -18,7 +19,7 @@ export class Service {
         this.user = sessionStorage.getItem('user');
     }
 
-    public registerJobSeeker(user: any): Observable<void> {
+    public registerJobSeeker(user: any): Observable<boolean> {
         const jobSeeker: CreateJobSeeker = new CreateJobSeeker(
             user.username,
             user.password,
@@ -30,7 +31,7 @@ export class Service {
             user.address,
             user.phone
         )
-        return this.http.post<void>(`${this.url}/registration/jobseeker`, jobSeeker);
+        return this.http.post<boolean>(`${this.url}/registration/jobseeker`, jobSeeker);
     }
 
     public registerAdvertiser(advertiser: any): Observable<any> {
@@ -53,8 +54,12 @@ export class Service {
         return this.http.get<any[]>(`${this.url}/jobs`, {params: param});
     }
 
-    public getJob(id: number): Observable<JobDetails> {
-        return this.http.get<JobDetails>(`${this.url}/job/${id}`);
+    public getJob(id: number): Observable<Job> {
+        return this.http.get<Job>(`${this.url}/job/${id}`);
+    }
+
+    public getJobDetails(id: number): Observable<JobDetails> {
+        return this.http.get<JobDetails>(`${this.url}/jobDetail/${id}`);
     }
 
     public loginJobSeeker(username: string, password: string): Observable<any> {
@@ -73,14 +78,14 @@ export class Service {
         });
     }
 
-    public deleteJob(jobId: number, userId: number): Observable<void> {
+    public deleteJob(jobId: number, userId: number): Observable<boolean> {
         const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
-        return this.http.delete<void>(`${this.url}/job/delete`, {params: param});
+        return this.http.delete<boolean>(`${this.url}/job/delete`, {params: param});
     }
 
-    public createJob(job: any): Observable<any> {
+    public createJob(job: any): Observable<boolean> {
         const userId =  sessionStorage.getItem('userID');
-        return this.http.post<any>(`${this.url}/jobs/create`, 
+        return this.http.post<boolean>(`${this.url}/jobs/create`, 
         {
             name: job.name,
             description: job.description,
@@ -89,10 +94,14 @@ export class Service {
         });
     }
 
-    public applyJob(jobId: number, userId: number): Observable<any> {
+    public updateJob(job: UpdateJob): Observable<boolean> {
+        return this.http.post<boolean>(`${this.url}/jobs/update`, job);
+    }
+
+    public applyJob(jobId: number, userId: number): Observable<boolean> {
         console.log("eljut idáig?")
         const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
-        return this.http.get<any>(`${this.url}/job/apply`, {params: param});
+        return this.http.get<boolean>(`${this.url}/job/apply`, {params: param});
     }
 
     public uploadCV(cv: any): Observable<any> {

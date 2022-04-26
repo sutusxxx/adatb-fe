@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JobDetails } from 'src/app/model/job-details';
 
 @Component({
@@ -14,7 +14,8 @@ export class JobDetailComponent implements OnInit {
 
   constructor(
     private service: Service,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +30,11 @@ export class JobDetailComponent implements OnInit {
     const sessionUserId: string | null = sessionStorage.getItem('userID');
     if (sessionUserId && this.jobDetails) {
       const userId: number = parseInt(sessionUserId);
-      this.service.deleteJob(this.jobDetails.id, userId).subscribe();
+      this.service.deleteJob(this.jobDetails.id, userId).subscribe(bool => {
+        if (bool) {
+          console.log("siker");
+        }
+      });
     }
   }
 
@@ -37,13 +42,21 @@ export class JobDetailComponent implements OnInit {
     const sessionUserId: string | null = sessionStorage.getItem('userID');
     if (sessionUserId && this.jobDetails) {
       const userId: number = parseInt(sessionUserId);
-      this.service.applyJob(this.jobDetails.id, userId).subscribe();
+      this.service.applyJob(this.jobDetails.id, userId).subscribe(bool => {
+        if (bool) {
+          console.log("siker");
+        }
+      });
     }
+  }
+
+  update(): void {
+    this.router.navigate(['/update', this.jobDetails?.id]);
   }
 
   async setJobDetails(id: number): Promise<void> {
     if (id) {
-      await this.service.getJob(id).subscribe(res => {
+      await this.service.getJobDetails(id).subscribe(res => {
         console.log(res);
         this.jobDetails = res;
       });
