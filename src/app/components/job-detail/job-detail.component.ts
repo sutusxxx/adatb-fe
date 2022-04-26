@@ -29,12 +29,16 @@ export class JobDetailComponent implements OnInit {
     const sessionUserId: string | null = sessionStorage.getItem('userID');
     if (sessionUserId && this.jobDetails) {
       const userId: number = parseInt(sessionUserId);
-      this.service.deleteJob(this.jobDetails.id, userId);
+      this.service.deleteJob(this.jobDetails.id, userId).subscribe();
     }
   }
 
   apply(): void {
-
+    const sessionUserId: string | null = sessionStorage.getItem('userID');
+    if (sessionUserId && this.jobDetails) {
+      const userId: number = parseInt(sessionUserId);
+      this.service.applyJob(this.jobDetails.id, userId).subscribe();
+    }
   }
 
   async setJobDetails(id: number): Promise<void> {

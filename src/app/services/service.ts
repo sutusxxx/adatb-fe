@@ -33,8 +33,8 @@ export class Service {
         return this.http.post<void>(`${this.url}/registration/jobseeker`, jobSeeker);
     }
 
-    public registerAdvertiser(advertiser: any): Observable<void> {
-        return this.http.post<void>(`${this.url}/registration/advertiser`, 
+    public registerAdvertiser(advertiser: any): Observable<any> {
+        return this.http.post<any>(`${this.url}/registration/advertiser`, 
         {
             username: advertiser.username,
             password: advertiser.password,
@@ -89,9 +89,10 @@ export class Service {
         });
     }
 
-    public applyJob(jobId: number, userId: string): Observable<void> {
+    public applyJob(jobId: number, userId: number): Observable<any> {
+        console.log("eljut idáig?")
         const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
-        return this.http.put<void>(`${this.url}/job/apply`, {params: param});
+        return this.http.get<any>(`${this.url}/job/apply`, {params: param});
     }
 
     public uploadCV(cv: any): Observable<any> {

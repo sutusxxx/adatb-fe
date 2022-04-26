@@ -37,7 +37,7 @@ import { Service } from "src/app/services/service";
     }
 
     registrationForUser(): void {
-        this.service.registerJobSeeker(this.user);
+        this.service.registerJobSeeker(this.user).subscribe();
     }
 
     registrationForAdvertiser(): void {
