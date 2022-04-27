@@ -1,0 +1,69 @@
+<div *ngIf="isAdvertiser()">
+    <form>
+        <h2>Felhasználó adatai:</h2>
+        <label>Felhasználónév:</label>
+        <input>
+        <label>Email cím:</label>
+        <input>
+        <label>Telefon:</label>
+        <input>
+        <label>Név:</label>
+        <input>
+        <br>
+    </form>
+    <div>
+        <h2>Cég adatai:</h2>
+        <label>Cégnév:</label>
+        <input readonly>
+        <label>Cég telefon:</label>
+        <input readonly>
+        <label>cég email:</label>
+        <input readonly>
+        <div>
+            <h3>Székhely:</h3>
+            <label>Irányítószám:</label>
+            <input readonly>
+            <label>Város:</label>
+            <input readonly>
+            <label>Utca:</label>
+            <input readonly>
+            <label>Házszám</label>
+            <input readonly>
+            <label>Megye</label>
+            <input readonly>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isJobSeeker()">
+    <form>
+        <h2>Felhasználó adatai:</h2>
+        <label>Felhasználónév:</label>
+        <input>
+        <label>Név:</label>
+        <input>
+        <label>Végzettség:</label>
+        <input>
+        <label>Születési dátum:</label>
+        <input>
+        <label>Ismert nyelvek: </label>
+        <input>
+        <label>Email cím:</label>
+        <input>
+        <label>Lakhely:</label>
+        <input>
+        <label>Telefon:</label>
+        <input>
+    </form>
+    <table>
+        Jelentkezések:
+        <tr>
+            <th>Hirdetés</th>
+            <th>Opció</th>
+        </tr>
+        <tr *ngFor="let application of applications">
+            <td></td>
+            <td>TörlésGomb</td>
+        </tr>
+    </table>
+</div>

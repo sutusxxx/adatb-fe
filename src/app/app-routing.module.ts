@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { UpdateJobComponent } from './components/update-job/update-job.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/jobs', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'create', component: CreateJobComponent },
   { path: 'createCV', component: CreateCVComponent },
-  { path: 'update/:id', component: UpdateJobComponent}
+  { path: 'update/:id', component: UpdateJobComponent },
+  { path: 'settings', component: SettingsComponent }
 ];
 
 @NgModule({
@@ -30,4 +32,5 @@ export const routingComponents = [LoginComponent,
                                   RegistrationComponent,
                                   CreateJobComponent,
                                   CreateCVComponent,
-                                  UpdateJobComponent]
+                                  UpdateJobComponent,
+                                  SettingsComponent]

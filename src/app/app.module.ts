@@ -16,6 +16,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { CreateJobComponent } from './components/create-job/create-job.component';
 import { CreateCVComponent } from './components/create-cv/create-cv.component';
 import { UpdateJobComponent } from './components/update-job/update-job.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 
@@ -30,7 +31,8 @@ import { UpdateJobComponent } from './components/update-job/update-job.component
     RegistrationComponent,
     CreateJobComponent,
     CreateCVComponent,
-    UpdateJobComponent
+    UpdateJobComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
