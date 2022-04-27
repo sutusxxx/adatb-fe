@@ -51,8 +51,10 @@ export class Service {
         return this.http.get<Job[]>(`${this.url}/jobs`);
     }
 
-    public getJobListForAdvertiser(id: string): Observable<any[]> {
-        const param = new HttpParams().set('id', id)
+    public getJobListForAdvertiser(id: number): Observable<any[]> {
+        const idParam: string = id + '';
+        console.log(idParam)
+        const param = new HttpParams().set('id', idParam)
         return this.http.get<any[]>(`${this.url}/jobs`, {params: param});
     }
 
@@ -118,4 +120,12 @@ export class Service {
     public logout(): void {
         sessionStorage.clear();
     }
+
+    public isUserAdvertiser(): boolean {
+        return sessionStorage.getItem('type') === 'hirdeto';
+    }
+
+    isUserJobSeeker(){
+        return sessionStorage.getItem('type') === 'allaskereso';
+      }
 }

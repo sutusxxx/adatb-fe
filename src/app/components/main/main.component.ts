@@ -28,9 +28,19 @@ export class MainComponent implements OnInit {
     }
 
     initJobs() {
-        this.service.getJobList().subscribe(jobs => {
-            this.jobs = jobs;
-            console.log(jobs);
-        });
+        if (this.service.isUserAdvertiser()) {
+            const userIdFromSession: string | null = sessionStorage.getItem('userID');
+            if (userIdFromSession) {
+                const userId: number = parseInt(userIdFromSession);
+                this.service.getJobListForAdvertiser(userId).subscribe(jobs => {
+                    this.jobs = jobs;
+                });
+            }
+        } else {
+            this.service.getJobList().subscribe(jobs => {
+                this.jobs = jobs;
+            });
+        }
+
     }
 }
