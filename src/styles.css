@@ -20,6 +20,10 @@ html, body { height: 100%; }
     background-attachment: fixed;
 }
 
+.main {
+    height: 800px;
+}
+
 .center{
     position: absolute;
     top: 45%;
