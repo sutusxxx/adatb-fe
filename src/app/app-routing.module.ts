@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateJobComponent } from './components/create-job/create-job.component';
+import { CreateCVComponent } from './components/create-cv/create-cv.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'jobs/:id', component: JobDetailComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'create', component: CreateJobComponent },
+  { path: 'createCV', component: CreateCVComponent },
   { path: 'update/:id', component: UpdateJobComponent}
 ];
 
@@ -27,4 +29,5 @@ export const routingComponents = [LoginComponent,
                                   JobDetailComponent,
                                   RegistrationComponent,
                                   CreateJobComponent,
+                                  CreateCVComponent,
                                   UpdateJobComponent]

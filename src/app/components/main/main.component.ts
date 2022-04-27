@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CV } from 'src/app/model/cv';
 import { Job } from 'src/app/model/job';
 import { Service } from 'src/app/services/service';
 
@@ -11,6 +12,7 @@ import { Service } from 'src/app/services/service';
 export class MainComponent implements OnInit {
 
     public jobs: Job[] = [];
+    public cvs: CV[] = [];
 
     constructor(
         private router: Router,

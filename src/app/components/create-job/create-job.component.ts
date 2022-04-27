@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
+import { CreateJob } from "src/app/model/create-job";
+import { JobForm } from "src/app/model/job-form";
 import { Service } from "src/app/services/service";
 
 @Component({
@@ -8,7 +10,7 @@ import { Service } from "src/app/services/service";
     styleUrls: ['./create-job.component.css']
   })
   export class CreateJobComponent implements OnInit {
-    job: any = {name: '', description: '', place: ''};
+    job: JobForm = new JobForm();
   
     constructor(
       private service: Service,
@@ -23,11 +25,15 @@ import { Service } from "src/app/services/service";
     }
 
     createJob(): void {
-        console.log(this.job);
-        this.service.createJob(this.job).subscribe(bool => {
+      const userIdFromSession: string | null =  sessionStorage.getItem('userID');
+      if (userIdFromSession) {
+        const userId: number = parseInt(userIdFromSession);
+        const createJob: CreateJob = new CreateJob(this.job.name, this.job.description, userId, this.job.place);
+        this.service.createJob(createJob).subscribe(bool => {
           if (bool) {
             this.router.navigate(['/jobs']);
           }
         });
+      }
     }
   }

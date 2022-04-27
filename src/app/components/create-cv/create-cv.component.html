@@ -1,0 +1,12 @@
+<div *ngIf="isUserJobSeeker() && this.cv" class="main">
+    <div class="container">
+        <div id="hirdet">
+            <h2>Önéletrajz feltöltése</h2>
+            <hr/>
+            <form class="upload" >
+                <label>Bemutatkozás: <input type="text" name="bemutatkozas"  [(ngModel)]="cv.introduction" required/></label> <br/>
+                <label>Tapasztalat: <input type="text" name="tapasztalat"  [(ngModel)]="cv.experience" required/></label> <br/>
+                <label>Motiváció: <input type="text" name="motivacio"  [(ngModel)]="cv.motivation" required/></label> <br/>
+                <input type="button" (click)="createCV()" value="Feltöltés"/> <br/><br/>
+            </form>
+</div>

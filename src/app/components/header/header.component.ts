@@ -33,6 +33,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return sessionStorage.getItem('type') === 'hirdeto';
 }
 
+  isUserJobSeeker(){
+    return sessionStorage.getItem('type') === 'allaskereso';
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

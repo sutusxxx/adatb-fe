@@ -5,6 +5,8 @@ import { CreateJobSeeker } from "../model/create-job-seeker";
 import { Job } from "../model/job";
 import { JobDetails } from "../model/job-details";
 import { UpdateJob } from "../model/update-job";
+import { CreateCV } from "../model/create-cv";
+import { CreateJob } from "../model/create-job";
 
 @Injectable({
     providedIn: 'root',
@@ -83,15 +85,12 @@ export class Service {
         return this.http.delete<boolean>(`${this.url}/job/delete`, {params: param});
     }
 
-    public createJob(job: any): Observable<boolean> {
-        const userId =  sessionStorage.getItem('userID');
-        return this.http.post<boolean>(`${this.url}/jobs/create`, 
-        {
-            name: job.name,
-            description: job.description,
-            advertiserId: userId,
-            place: job.place
-        });
+    public createCV(cv: CreateCV): Observable<boolean> {
+        return this.http.post<boolean>(`${this.url}/createCV`, cv);
+    }
+
+    public createJob(job: CreateJob): Observable<boolean> {
+        return this.http.post<boolean>(`${this.url}/jobs/create`, job);
     }
 
     public updateJob(job: UpdateJob): Observable<boolean> {
@@ -104,12 +103,7 @@ export class Service {
         return this.http.get<boolean>(`${this.url}/job/apply`, {params: param});
     }
 
-    public uploadCV(cv: any): Observable<any> {
-        return of();
-    }
-
     public setUser(user: any, type: string): void {
-        console.log(user);
         if (user) {
             sessionStorage.setItem('userID', user.id);
             sessionStorage.setItem('username', user.username);

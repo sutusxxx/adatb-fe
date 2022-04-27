@@ -5,6 +5,7 @@
                 <li><a href="index.html">Főoldal</a></li>
                 <li><a href="/jobs">Álláskeresés</a></li>
                 <li *ngIf="isAdvertiser()"><a href="/create">Álláskeresés létrehozása</a></li>
+                <li *ngIf="isUserJobSeeker()"><a href="/createCV">Önéletrajz feltöltés</a></li>
                 <li><a href="/registration">Regisztráció</a></li>
                 <li *ngIf="!isLoggedIn()"><a href="/login">Bejelentkezés</a></li>
                 <li *ngIf="isLoggedIn()"><a (click)="logout()">Kijelentkezés</a></li>

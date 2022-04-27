@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CreateJobComponent } from './components/create-job/create-job.component';
+import { CreateCVComponent } from './components/create-cv/create-cv.component';
 import { UpdateJobComponent } from './components/update-job/update-job.component';
 
 
@@ -28,6 +29,7 @@ import { UpdateJobComponent } from './components/update-job/update-job.component
     FooterComponent,
     RegistrationComponent,
     CreateJobComponent,
+    CreateCVComponent,
     UpdateJobComponent
   ],
   imports: [
