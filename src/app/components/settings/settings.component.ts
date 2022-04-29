@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Advertiser } from "src/app/model/advertiser";
+import { AdvertiserForm } from "src/app/model/advertiser-form";
+import { Service } from "src/app/services/service";
 
 @Component({
     selector: 'app-settings',
@@ -7,12 +11,32 @@ import { Component, OnInit } from "@angular/core";
   })
 export class SettingsComponent implements OnInit {
 
+    advertiser: AdvertiserForm | null = null;
     applications: any[] = [];
 
-    constructor() {}
+    constructor(
+        private router: Router,
+        private service: Service) {}
 
     ngOnInit(): void {
-        
+        const userType: string | null = sessionStorage.getItem('type');
+        const userId: string | null = sessionStorage.getItem('userID');
+        if (userType && userId) {
+
+            switch(userType) {
+                case 'hirdeto':
+                    this.service.getAdvertiser(parseInt(userId))
+                        .subscribe((response: Advertiser) => {
+                            if (response) {
+                                this.advertiser = new AdvertiserForm(response);
+                            } else {
+                                console.log('error');
+                            }
+                        });
+            }
+        } else {
+            this.router.navigate(['/login']);
+        }
     }
 
     isJobSeeker(): boolean {

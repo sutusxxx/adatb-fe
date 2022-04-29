@@ -7,10 +7,11 @@ import { JobDetails } from "../model/job-details";
 import { UpdateJob } from "../model/update-job";
 import { CreateCV } from "../model/create-cv";
 import { CreateJob } from "../model/create-job";
+import { Advertiser } from "../model/advertiser";
 
 @Injectable({
     providedIn: 'root',
-   })
+})
 export class Service {
     private url: string = 'http://localhost:8081';
 
@@ -37,14 +38,19 @@ export class Service {
     }
 
     public registerAdvertiser(advertiser: any): Observable<any> {
-        return this.http.post<any>(`${this.url}/registration/advertiser`, 
-        {
-            username: advertiser.username,
-            password: advertiser.password,
-            name: advertiser.name,
-            email: advertiser.email,
-            phone: advertiser.phone
-        })
+        return this.http.post<any>(`${this.url}/registration/advertiser`,
+            {
+                username: advertiser.username,
+                password: advertiser.password,
+                name: advertiser.name,
+                email: advertiser.email,
+                phone: advertiser.phone
+            })
+    }
+
+    public getAdvertiser(id: number): Observable<Advertiser> {
+        const param = new HttpParams().set('id', id.toString());
+        return this.http.get<Advertiser>(`${this.url}/advertiser/get`, { params: param });
     }
 
     public getJobList(): Observable<Job[]> {
@@ -52,10 +58,8 @@ export class Service {
     }
 
     public getJobListForAdvertiser(id: number): Observable<any[]> {
-        const idParam: string = id + '';
-        console.log(idParam)
-        const param = new HttpParams().set('id', idParam)
-        return this.http.get<any[]>(`${this.url}/jobs`, {params: param});
+        const param = new HttpParams().set('id', id.toString());
+        return this.http.get<any[]>(`${this.url}/jobs`, { params: param });
     }
 
     public getJob(id: number): Observable<Job> {
@@ -67,24 +71,24 @@ export class Service {
     }
 
     public loginJobSeeker(username: string, password: string): Observable<any> {
-        return this.http.post<any>(`${this.url}/login/jobseeker`, 
-        {
-            username: username,
-            password: password
-        });
+        return this.http.post<any>(`${this.url}/login/jobseeker`,
+            {
+                username: username,
+                password: password
+            });
     }
 
     public loginAdvertiser(username: string, password: string): Observable<any> {
-        return this.http.post<any>(`${this.url}/login/advertiser`, 
-        {
-            username: username,
-            password: password
-        });
+        return this.http.post<any>(`${this.url}/login/advertiser`,
+            {
+                username: username,
+                password: password
+            });
     }
 
     public deleteJob(jobId: number, userId: number): Observable<boolean> {
         const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
-        return this.http.delete<boolean>(`${this.url}/job/delete`, {params: param});
+        return this.http.delete<boolean>(`${this.url}/job/delete`, { params: param });
     }
 
     public createCV(cv: CreateCV): Observable<boolean> {
@@ -102,7 +106,7 @@ export class Service {
     public applyJob(jobId: number, userId: number): Observable<boolean> {
         console.log("eljut idáig?")
         const param = new HttpParams().set('job', jobId.toString()).set('user', userId.toString());
-        return this.http.get<boolean>(`${this.url}/job/apply`, {params: param});
+        return this.http.get<boolean>(`${this.url}/job/apply`, { params: param });
     }
 
     public setUser(user: any, type: string): void {
@@ -125,7 +129,7 @@ export class Service {
         return sessionStorage.getItem('type') === 'hirdeto';
     }
 
-    isUserJobSeeker(){
+    isUserJobSeeker() {
         return sessionStorage.getItem('type') === 'allaskereso';
-      }
+    }
 }

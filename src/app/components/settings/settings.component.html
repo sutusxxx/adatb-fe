@@ -1,37 +1,37 @@
-<div *ngIf="isAdvertiser()">
+<div *ngIf="isAdvertiser() && advertiser">
     <form>
         <h2>Felhasználó adatai:</h2>
         <label>Felhasználónév:</label>
-        <input>
+        <input type="text" name="username" [(ngModel)]="advertiser.username">
         <label>Email cím:</label>
-        <input>
+        <input type="text" name="email" [(ngModel)]="advertiser.email">
         <label>Telefon:</label>
-        <input>
+        <input type="text" name="phone" [(ngModel)]="advertiser.phone">
         <label>Név:</label>
-        <input>
+        <input type="text" name="name" [(ngModel)]="advertiser.name">
         <br>
         <input type="submit">
     </form>
     <div>
         <h2>Cég adatai:</h2>
         <label>Cégnév:</label>
-        <input readonly>
+        <input  type="text" name="name" [(ngModel)]="advertiser.companyName" readonly>
         <label>Cég telefon:</label>
-        <input readonly>
+        <input type="text" name="name" [(ngModel)]="advertiser.companyPhone" readonly>
         <label>cég email:</label>
-        <input readonly>
+        <input type="text" name="name" [(ngModel)]="advertiser.companyEmail" readonly>
         <div>
             <h3>Székhely:</h3>
             <label>Irányítószám:</label>
-            <input readonly>
+            <input type="text" name="name" [(ngModel)]="advertiser.zipCode" readonly>
             <label>Város:</label>
-            <input readonly>
+            <input type="text" name="name" [(ngModel)]="advertiser.city" readonly>
             <label>Utca:</label>
-            <input readonly>
+            <input type="text" name="name" [(ngModel)]="advertiser.street" readonly>
             <label>Házszám</label>
-            <input readonly>
+            <input type="text" name="name" [(ngModel)]="advertiser.houseNumber" readonly>
             <label>Megye</label>
-            <input readonly>
+            <input type="text" name="name" [(ngModel)]="advertiser.county" readonly>
         </div>
     </div>
 </div>
